@@ -90,12 +90,13 @@ function ProductCreateCtrl($scope, $rootScope, $location)
 
 	$scope.takePhoto = function()
 	{
-		navigator.camera.getPicture(function(){
-			$scope.$apply($scope.successPhoto)
-		}, function(){
-			$scope.$apply($scope.failPhoto)
-		}, { quality: 75,
-    	destinationType: Camera.DestinationType.FILE_URI });
+		if(confirm("Are you sure we gonna take photo"))
+			navigator.camera.getPicture(function(){
+				$scope.$apply($scope.successPhoto)
+			}, function(){
+				$scope.$apply($scope.failPhoto)
+			}, { quality: 75,
+	    	destinationType: Camera.DestinationType.FILE_URI });
 	}
 
 	newItem.img_src = ""
