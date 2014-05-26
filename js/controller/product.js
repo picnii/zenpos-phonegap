@@ -95,7 +95,7 @@ function ProductCreateCtrl($scope, $rootScope, $location)
 				$scope.$apply($scope.successPhoto)
 			}, function(){
 				$scope.$apply($scope.failPhoto)
-			}, { quality: 75,
+			}, { quality: 40,
 	    	destinationType: Camera.DestinationType.FILE_URI });
 	}
 
