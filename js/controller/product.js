@@ -112,6 +112,10 @@ function ProductCreateCtrl($scope, $rootScope, $location, $timeout)
 
 	$scope.failPhoto = function(message)
 	{
-		alert('Failed because: ' + message);
+		setTimeout(function() {
+		    // do your thing here!
+		    alert('Failed because: ' + message);
+		}, 0);
+		
 	}
 }
