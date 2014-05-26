@@ -2,8 +2,8 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.picnii.zenpos"
-        versionCode = "7" 
-        version     = "4.5" >
+        versionCode = "6" 
+        version     = "4.6" >
 
     <!-- versionCode is optional and Android only -->
 

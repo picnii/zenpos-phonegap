@@ -93,13 +93,13 @@ function ProductCreateCtrl($scope, $rootScope, $location, $timeout)
 
 	$scope.takePhoto = function()
 	{
-		alert("test this button work?")
-			/*navigator.camera.getPicture(function(){
+		
+		navigator.camera.getPicture(function(){
 				$scope.$apply($scope.successPhoto)
 			}, function(){
 				$scope.$apply($scope.failPhoto)
 			}, { quality: 40,
-	    	destinationType: Camera.DestinationType.DATA_URL });*/
+	    	destinationType: Camera.DestinationType.DATA_URL });
 	}
 	$scope.newItem = {};
 	$scope.newItem.img_src = ""
