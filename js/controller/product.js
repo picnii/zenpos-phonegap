@@ -90,20 +90,20 @@ function ProductCreateCtrl($scope, $rootScope, $location)
 
 	$scope.takePhoto = function()
 	{
-		if(confirm("Are you sure we gonna take photo"))
+		
 			navigator.camera.getPicture(function(){
 				$scope.$apply($scope.successPhoto)
 			}, function(){
 				$scope.$apply($scope.failPhoto)
 			}, { quality: 40,
-	    	destinationType: Camera.DestinationType.FILE_URI });
+	    	destinationType: Camera.DestinationType.DATA_URL });
 	}
 
 	newItem.img_src = ""
 	newItem.have_photo = false;
 	$scope.successPhoto = function(imageURI)
 	{
-		newItem.img_src = imageURI;
+		newItem.img_src = "data:image/jpeg;base64," + imageURI;
 		newItem.have_photo = true;
 	}
 
