@@ -1,0 +1,26 @@
+<div class="scrollable" >
+	<div class="scrollable-content">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Product</th>
+					<th>Price per unit</th>
+					<th>Quantity</th>
+					<th>Amount</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in carts">
+					<td>{{item.name}}</td>
+					<td>{{item.price | currency:store.currency}}</td>
+					<td> x {{item.count}}</td>
+					<td>{{item.price * item.count | currency:store.currency}}</td>
+				<tr>
+				<tr>
+					<td colspan="3">Total</td>
+					<td >{{sum | currency:store.currency}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

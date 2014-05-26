@@ -1,0 +1,59 @@
+<div class="scrollable">
+	<div class="scrollable-content">
+		<section style="text-align:center">
+			<h2>Product</h2>
+			<div style="text-align:center;">
+				<span class="test">{{items.length}}</span> products in 
+				<span class="test">{{types.length}}</span> types
+			</div>
+			<h2>Sales</h2>
+			<div class="graph" style="text-align:center;max-width:480px;">
+				<canvas id="sales-chart" width="480" height="240" ></canvas>
+			</div>	
+		</section>
+
+		<section ng-show="store.is_use_stock" style="text-align:center">
+			<h2>Stock</h2>
+			<div class="graph" style="text-align:center;max-width:480px;">
+				<canvas id="stock-chart" width="480" height="240" ></canvas>
+			</div>
+			<div style="display:inline-block;padding-right:5px;" ng-repeat="stock in stocks">
+				<div style="background:{{stock.color}};height:25px;width:25px;display:inline-block;"></div> {{stock.name}}<strong>({{stock.value}}) </strong>
+			</div>
+		</section>
+		
+		<section style="text-align:center">
+			<h2>Space Usage</h2>
+			<div class="graph" style="text-align:center;max-width:480px;">
+				<canvas id="space-chart" width="480" height="240" ></canvas>
+			</div>
+			<div style="background:#F38630;height:25px;width:25px;display:inline-block;"></div> Used <div style="background:#69D2E7;height:25px;width:25px;display:inline-block;"></div> Empty 
+		</section>
+		
+		<!--<section>
+			<h2>Recent Order</h2>
+			<table class="table">
+
+			</table>
+
+		</section>-->
+	</div>
+</div>
+<style type="text/css">
+
+
+
+span.test
+{
+	font-size:18px;
+}
+@media (max-width: 400px) { 
+	span.test
+	{
+		font-size:12px;
+		color:black;
+		font-weight: 999;
+	}
+ }
+
+</style>

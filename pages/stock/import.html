@@ -1,0 +1,42 @@
+<div class="scrollable">
+	<div class="scrollable-content">
+		<table class="table">
+			<thead>
+				<tr>
+					<td>สินค้า</td>
+					<td>จำนวน</td>
+					<td></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="import_item in import_items">
+					<td ><select class="product name"  ng-model="import_item.product" required ng-options="item.name for item in items"></select></td>
+					<td><input  class="product quantity"  ng-model="import_item.count" maxlength="3"></td>
+					<td><button   ng-click="delete(import_item)" class="btn btn-danger">-</button></td>
+				</tr>
+				<tr>
+					<td><select class="product name" ng-model="newImport.product" required ng-options="item.name for item in items">
+</select></td>
+					<td><input  class="product quantity" ng-model="newImport.count" type="number" maxlength="3" placeholder="Quantity"></td>
+					<td><button  ng-click="add(newImport)" class="btn btn-primary">ADD</button></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
+<!--<div class="btm-space">
+</div>
+<div class="btm-btn" >
+	<button ng-click="import()" class="btn btn-primary form-control"><i class="fa fa-download"></i> Import</button>
+</div>-->
+<style type="text/css">
+	
+@media (max-width: 400px) { 
+	.product.name, .product.quantity
+	{
+		width:100px;
+	}
+
+ }
+</style>

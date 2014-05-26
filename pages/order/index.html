@@ -1,0 +1,79 @@
+<div class="scrollable">
+	<div class="scrollable-content container">
+			<section ng-show="is_search_mode">
+				<h1><a  ng-click="is_search_mode=false"  href=""><i class="fa fa-arrow-left"></i></a> Search for product</h1>
+				<input id="search-item-name" type="text" ng-model="item_name" typeahead="item.name for item in items | filter:$viewValue" class="form-control" placeholder="search for product's name, type, price" typeahead-on-select="onSelect($item, $model, $label)">
+			</section>
+			<section ng-hide="is_search_mode">
+				<h1>Select product by type</h1>
+				<div ng-repeat = "item in types" class="menu">
+					<a class="order-name" style="background:{{item.color}}" ng-href="#/order/type/{{item.name}}">{{item.name}}</a>
+				</div>
+				<div class="menu">
+					<a class="order-name search" ng-click="openSearch()" ng-hide="is_search_mode" style="background:#333" href=""><i class="fa fa-search"></i>Search</a>
+				</div>
+			</section>
+			<section>
+				<h1>Current Order</h1>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Product</th>				
+							<th>Quantity</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in carts">
+							<td>{{item.name}} <span class="price">({{item.price | currency:store.currency }})</span></td>
+							
+							<td> x {{item.count}}</td>
+							<td><button ng-click="removeFromCart(item,1)" class="btn btn-danger">-</button>
+								<button ng-click="addToCart(item)" class="btn btn-primary">+</button>
+
+							</td>
+						<tr>
+					</tbody>
+				</table>
+			</section>
+		
+	</div>
+
+</div>
+<style type="text/css">
+				div.menu
+				{
+					display: inline-block;
+					padding-right: 10px;
+					padding-bottom: 10px;
+				}
+				div.menu > a
+				{
+					padding: 10px;
+					display: block;;
+					width: 100px;
+					height: 100px;
+					background:#FACE00; 
+					color:white;
+					text-align: center;
+					font-size: 20px;
+				}
+
+				a.order-name, button.order-name
+				{
+					width: 100px;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					vertical-align: middle;
+					
+				}
+
+				a.order-name.search
+				{
+					font-size: 19px;
+					padding-left:5px;
+					padding-right:5px;
+				}
+
+			</style>
