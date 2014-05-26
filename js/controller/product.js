@@ -70,11 +70,14 @@ function ProductCtrl($scope, $rootScope)
 	}
 }
 
-function ProductCreateCtrl($scope, $rootScope, $location)
+function ProductCreateCtrl($scope, $rootScope, $location, $timeout)
 {
 	$scope.onClickForSave = function()
 	{
-		$scope.addItem($scope.newItem);
+		$timeout(function(){
+			$scope.addItem($scope.newItem);
+		}, 50)
+		
 	}
 
 	$rootScope.menus = [{name:"BACK", path:"/products", icon:"fa-arrow-left" }, {name:"Save", path:"/products/create", icon:"fa-plus", click:$scope.onClickForSave }];	
@@ -98,9 +101,9 @@ function ProductCreateCtrl($scope, $rootScope, $location)
 			}, { quality: 40,
 	    	destinationType: Camera.DestinationType.DATA_URL });*/
 	}
-
-	newItem.img_src = ""
-	newItem.have_photo = false;
+	$scope.newItem = {};
+	$scope.newItem.img_src = ""
+	$scope.newItem.have_photo = false;
 	$scope.successPhoto = function(imageURI)
 	{
 		newItem.img_src = "data:image/jpeg;base64," + imageURI;
