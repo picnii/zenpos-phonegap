@@ -2,7 +2,7 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.picnii.zenpos"
-        versionCode = "6.28" 
+        versionCode = "6.285" 
         version     = "4.965" >
 
     <!-- versionCode is optional and Android only -->
